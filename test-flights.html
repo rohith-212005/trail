@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Flight Search - Travel Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+        .test-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .test-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 5px;
+        }
+        .test-link:hover {
+            background-color: #0056b3;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .description {
+            color: #666;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <h1>Flight Search Test Page</h1>
+    
+    <div class="test-section">
+        <h2>Test Real-Time Flight Data</h2>
+        <p class="description">
+            This page demonstrates the real-time flight data functionality. Click on any of the links below to test different flight routes.
+            The system will generate dynamic flight data based on the from/to locations you select.
+        </p>
+        
+        <h3>Popular Routes:</h3>
+        <a href="flights.html?from=Delhi&to=Mumbai" class="test-link">Delhi → Mumbai</a>
+        <a href="flights.html?from=Mumbai&to=Bangalore" class="test-link">Mumbai → Bangalore</a>
+        <a href="flights.html?from=Bangalore&to=Chennai" class="test-link">Bangalore → Chennai</a>
+        <a href="flights.html?from=Chennai&to=Kolkata" class="test-link">Chennai → Kolkata</a>
+        <a href="flights.html?from=Kolkata&to=Hyderabad" class="test-link">Kolkata → Hyderabad</a>
+        <a href="flights.html?from=Hyderabad&to=Pune" class="test-link">Hyderabad → Pune</a>
+        <a href="flights.html?from=Pune&to=Ahmedabad" class="test-link">Pune → Ahmedabad</a>
+        <a href="flights.html?from=Ahmedabad&to=Jaipur" class="test-link">Ahmedabad → Jaipur</a>
+        <a href="flights.html?from=Jaipur&to=Delhi" class="test-link">Jaipur → Delhi</a>
+    </div>
+
+    <div class="test-section">
+        <h2>Features Demonstrated:</h2>
+        <ul class="description">
+            <li><strong>Real-time Data Generation:</strong> Dynamic flight data based on from/to locations</li>
+            <li><strong>Loading States:</strong> Spinner animation while fetching data</li>
+            <li><strong>Advanced Filtering:</strong> Filter by time, class, and price range</li>
+            <li><strong>Responsive Design:</strong> Works on all device sizes</li>
+            <li><strong>Flight Details:</strong> Complete flight information with timings, prices, and availability</li>
+            <li><strong>Booking Integration:</strong> Seamless booking flow to details page</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h2>How to Use:</h2>
+        <ol class="description">
+            <li>Click on any route link above to see real-time flight data</li>
+            <li>Use the filters in the sidebar to narrow down results</li>
+            <li>Try different time ranges and price filters</li>
+            <li>Click "Book Now" on any flight to proceed to booking</li>
+            <li>Go back to <a href="homepage.html">homepage</a> to search custom routes</li>
+        </ol>
+    </div>
+
+    <div class="test-section">
+        <h2>Back to Homepage</h2>
+        <p class="description">
+            <a href="homepage.html" class="test-link">← Back to Homepage</a>
+        </p>
+    </div>
+</body>
+</html> 

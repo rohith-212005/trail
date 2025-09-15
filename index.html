@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> MY FIRST HTML</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+    <!-- login or sign upp purpose we use form -->
+    <nav>
+        <div class="logo">Travel Booking</div>
+    </nav>
+
+
+    <form action="http://localhost:5000/login" method="POST">
+        <div>
+            <h1>Login</h1>
+            <br>
+            <input type="text" placeholder="Username" id="username" name="username" required>
+            <br><br>
+            <input type="password" placeholder="Password" id="password" name="password" required>
+            <br><br>
+            <input type="checkbox" name="remember_me">Remember me
+            <br><br>
+            <input type="submit" value="Login" id="submit">
+            <br><br>
+            <p>Don't have an account? <a href="register.html" target="_main">Register</a></p>
+        </div>
+        <br>
+        <div id="error-message" style="color: red;"></div>
+    </form>
+
+    <script>
+        // Check if there's an error message from the server
+        const urlParams = new URLSearchParams(window.location.search);
+        const error = urlParams.get('error');
+        if (error) {
+            document.getElementById('error-message').textContent = error;
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

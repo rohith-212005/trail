@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .flight-info {
+            background: #e9f5ff;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #d1e9ff;
+            margin-bottom: 20px;
+        }
+
+        .flight-info h2 {
+            margin-top: 0;
+            color: #2980b9;
+        }
+
+        .flight-info p {
+            margin: 8px 0;
+            font-size: 1em;
+            color: #555;
+        }
+
+        .passenger-details {
+            margin-bottom: 20px;
+        }
+
+        .passenger-details h3 {
+            color: #2980b9;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1em;
+        }
+
+        .fare-summary {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+
+        .fare-summary h3 {
+            color: #2980b9;
+        }
+
+        .notes {
+            font-size: 0.9em;
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+        .notes ul {
+            padding-left: 20px;
+        }
+
+        .notes ul li {
+            margin-bottom: 10px;
+        }
+
+        .button {
+            background-color: #2980b9;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+            text-align: center;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .button:hover {
+            background-color: #1c5980;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            .form-group input,
+            .form-group select {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Booking Confirmation</h1>
+
+        <!-- Flight Information -->
+        <div class="flight-info">
+            <h2 id="flightName"></h2>
+            <p><strong>Departure:</strong> <span id="departTime"></span> | <span id="departLocation"></span></p>
+            <p><strong>Arrival:</strong> <span id="arriveTime"></span> | <span id="arriveLocation"></span></p>
+            <p><strong>Date:</strong> <span id="flightDate"></span></p>
+            <p><strong>Class:</strong> <span id="flightClass"></span></p>
+        </div>
+
+        <!-- Passenger Details -->
+        <div class="passenger-details">
+            <h3>Passenger Details</h3>
+            <form id="passengerForm">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="number" id="age" name="age" placeholder="Enter age" required>
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <select id="gender" name="gender" required>
+                        <option value="">Select gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="idProof">ID Proof</label>
+                    <select id="idProof" name="idProof" required>
+                        <option value="">Select ID proof</option>
+                        <option value="Aadhar">Aadhar</option>
+                        <option value="Passport">Passport</option>
+                        <option value="Driver's License">Driver's License</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" name="catering" id="catering">
+                        Opt for Onboard Catering
+                    </label>
+                </div>
+            </form>
+        </div>
+
+        <!-- Fare Summary -->
+        <div class="fare-summary">
+            <h3>Fare Summary</h3>
+            <p><strong>Total Fare:</strong> <span id="flightPrice"></span></p>
+        </div>
+
+        <!-- Important Notes -->
+        <div class="notes">
+            <h3>Important Notes</h3>
+            <ul>
+                <li>Please submit the full name of the passengers instead of initials.</li>
+                <li>The ID card will be required during the journey.</li>
+                <li>Children under 5 years of age shall be carried free and no purchase of any tickets is required (if no separate berth is opted).</li>
+            </ul>
+        </div>
+
+        <!-- Confirm Booking Button -->
+        <a href="payment.html"><button class="button" type="submit" form="passengerForm">Confirm Booking</button></a>
+    </div>
+
+    <script>
+        // Extract URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const ticketName = urlParams.get('ticketName');
+        const ticketPrice = urlParams.get('ticketPrice');
+        const departTime = urlParams.get('departTime');
+        const arriveTime = urlParams.get('arriveTime');
+        const departLocation = urlParams.get('departLocation');
+        const arriveLocation = urlParams.get('arriveLocation');
+
+        // Display flight details dynamically
+        document.getElementById('flightName').textContent = ticketName;
+        document.getElementById('departTime').textContent = departTime;
+        document.getElementById('arriveTime').textContent = arriveTime;
+        document.getElementById('departLocation').textContent = departLocation;
+        document.getElementById('arriveLocation').textContent = arriveLocation;
+        document.getElementById('flightPrice').textContent = ticketPrice;
+
+        // Set default date and class (you can customize these)
+        document.getElementById('flightDate').textContent = "Wed, 19 Mar 2025";
+        document.getElementById('flightClass').textContent = "Economy";
+    </script>
+</body>
+</html>
