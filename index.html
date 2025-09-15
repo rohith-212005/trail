@@ -2,69 +2,57 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Travel Booking - Login</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> MY FIRST HTML</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <nav>
-    <div class="logo">Travel Booking</div>
-  </nav>
 
-  <form id="loginForm">
-    <div>
-      <h1>Login</h1>
-      <br>
-      <input type="text" placeholder="Username" id="username" name="username" required>
-      <br><br>
-      <input type="password" placeholder="Password" id="password" name="password" required>
-      <br><br>
-      <input type="checkbox" name="remember_me"> Remember me
-      <br><br>
-      <button type="submit" id="submit">Login</button>
-      <br><br>
-      <p>Don't have an account? <a href="register.html">Register</a></p>
-    </div>
-    <br>
-    <div id="error-message" style="color: red;"></div>
-  </form>
 
-  <script>
-    document.getElementById("loginForm").addEventListener("submit", async (e) => {
-      e.preventDefault(); // stop page refresh
+    <!-- login or sign upp purpose we use form -->
+    <nav>
+        <div class="logo">Travel Booking</div>
+    </nav>
 
-      const username = document.getElementById("username").value.trim();
-      const password = document.getElementById("password").value.trim();
 
-      if (!username || !password) {
-        document.getElementById("error-message").textContent = "Please fill all fields.";
-        return;
-      }
+    <form action="http://localhost:5000/login" method="POST">
+        <div>
+            <h1>Login</h1>
+            <br>
+            <input type="text" placeholder="Username" id="username" name="username" required>
+            <br><br>
+            <input type="password" placeholder="Password" id="password" name="password" required>
+            <br><br>
+            <input type="checkbox" name="remember_me">Remember me
+            <br><br>
+            <input type="submit" value="Login" id="submit">
+            <br><br>
+            <p>Don't have an account? <a href="register.html" target="_main">Register</a></p>
+        </div>
+        <br>
+        <div id="error-message" style="color: red;"></div>
+    </form>
 
-      try {
-        // 🚨 Replace this with your actual backend API hosted on Render/Heroku
-        const res = await fetch("http://localhost:5000/login", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ username, password })
-        });
-
-        const data = await res.json();
-
-        if (res.ok) {
-          alert("Login successful!");
-          window.location.href = "dashboard.html"; // redirect after login
-        } else {
-          document.getElementById("error-message").textContent = data.message || "Invalid login";
+    <script>
+        // Check if there's an error message from the server
+        const urlParams = new URLSearchParams(window.location.search);
+        const error = urlParams.get('error');
+        if (error) {
+            document.getElementById('error-message').textContent = error;
         }
-      } catch (err) {
-        console.error(err);
-        document.getElementById("error-message").textContent = "Server not reachable. Please try again later.";
-      }
-    });
-  </script>
+    </script>
+
+
+
+
+
+
+
+
+
+
 </body>
 
 </html>
